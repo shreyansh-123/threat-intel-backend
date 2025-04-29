@@ -7,7 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const VT_API_KEY = process.env.VT_API_KEY;
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://shreyansh-123.github.io',  // your GitHub Pages domain
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 
 app.get('/virustotal', async (req, res) => {
   const query = req.query.query;
